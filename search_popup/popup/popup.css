@@ -15,6 +15,15 @@
     gap: 10px;
   }
   
+  #copy-button {
+    padding: 5px 10px;
+    background-color: #dbdfe6;
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
   #search-button {
     padding: 5px 10px;
     background-color: #4285f4;

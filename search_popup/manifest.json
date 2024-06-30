@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Text Selection Popup",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Show a popup with a search button when text is selected.",
   "permissions": [
     "activeTab"

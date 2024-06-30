@@ -1,6 +1,6 @@
 
 document.addEventListener('mouseup', function (event) {
-    if (event.target?.id === 'search-button')
+    if (event.target?.id === 'search-button' || event.target?.id === 'copy-button')
         return
     var scrollTop = (window.scrollY !== undefined) ? window.scrollY : (document.documentElement || document.body.parentNode || document.body).scrollTop;
 
@@ -9,6 +9,9 @@ document.addEventListener('mouseup', function (event) {
     const selectedText = window.getSelection().toString().trim();
     if (selectedText.length > 0) {
         showPopup(selectedText, posX, posY);
+        setTimeout(removePopup, 3000)
+    } else {
+        removePopup()
     }
 });
 
@@ -19,16 +22,24 @@ function showPopup(selectedText, posX, posY) {
     popup.innerHTML = `
       <div class="popup-content">
         <button id="search-button">Search</button>
+        <button id="copy-button">Copy</button>
       </div>
     `;
     popup.style.left = posX + 'px';
     popup.style.top = posY + 'px';
 
     document.body.appendChild(popup);
+
     document.querySelector("div.popup-content button#search-button").onclick = function () {
-        window.getSelection().empty();
         browser.runtime.sendMessage({ action: 'search', text: selectedText });
         removePopup();
+    };
+
+    document.querySelector("div.popup-content button#copy-button").onclick = function () {
+        navigator.clipboard.writeText(selectedText).then(() => {
+        }).catch(err => {
+            console.error("Failed to copy text: ", err);
+        }).finally(removePopup);
     };
 }
 
