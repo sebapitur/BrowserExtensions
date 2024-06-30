@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "Text Selection Popup",
+  "version": "1.0",
+  "description": "Show a popup with a search button when text is selected.",
+  "permissions": [
+    "activeTab"
+  ],
+  "background": {
+    "scripts": ["background/background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/content.js"],
+      "css": ["popup/popup.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    "popup/popup.html"
+  ]
+}

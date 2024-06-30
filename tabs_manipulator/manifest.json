@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Manager",
+  "version": "1.0",
+  "description": "Manage tabs using keyboard shortcuts.",
+  "permissions": [
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "commands": {
+    "close_other_tabs": {
+      "suggested_key": {
+        "default": "Alt+W"
+      },
+      "description": "Close other tabs"
+    },
+    "close_right_tabs": {
+      "suggested_key": {
+        "default": "Alt+L"
+      },
+      "description": "Close tabs to the right"
+    },
+    "duplicate_tab": {
+      "suggested_key": {
+        "default": "Alt+D"
+      },
+      "description": "Duplicate current tab"
+    },
+    "toggle_last_used_tab": {
+      "suggested_key": {
+        "default": "Alt+Q"
+      },
+      "description": "Toggle between last used tabs"
+    }
+  }
+}

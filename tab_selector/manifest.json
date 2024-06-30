@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Selector",
+  "version": "1.0",
+  "description": "Select tabs using keyboard shortcuts.",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "scripting",
+    "commands"
+  ],
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/content.js"]
+    }
+  ],
+
+  "commands": {
+    "select_tab_1": {
+      "suggested_key": {
+        "default": "Alt+1"
+      },
+      "description": "Select tab 1"
+    },
+    "select_tab_2": {
+      "suggested_key": {
+        "default": "Alt+2"
+      },
+      "description": "Select tab 2"
+    },
+    "select_tab_3": {
+      "suggested_key": {
+        "default": "Alt+3"
+      },
+      "description": "Select tab 3"
+    },
+    "select_tab_4": {
+      "suggested_key": {
+        "default": "Alt+4"
+      },
+      "description": "Select tab 4"
+    }
+  }
+}
